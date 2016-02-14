@@ -6,7 +6,7 @@ Package.describe({
     summary: 'Simple Block Helper for TinyMce in Blaze',
 
     // URL to the Git repository containing the source code for this package.
-    git: 'git@github.com:nerdmed/tinymce-helper.git',
+    git: 'https://github.com/nerdmed/tinymce-helper.git',
 
     // By default, Meteor will default to using README.md for documentation.
     // To avoid submitting documentation, set this field to null.
