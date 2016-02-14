@@ -63,6 +63,10 @@ The first parameter will be the new resulting String.
 	{{/TinyMce}}
 
 
+### Example Project
+
+Check out the following [example project](https://github.com/nerdmed/tinymce-helper-example)
+
 ## Contribution
 Please report all issues and feature request.
 If you are interested in improving this package please contact me.
