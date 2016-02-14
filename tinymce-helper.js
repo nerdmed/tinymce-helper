@@ -4,6 +4,8 @@ Template.TinyMce.onCreated(function() {
     this.initTinyEditor = function() {
         let instance = this;
 
+        let editorId = instance.editorId = Random.id();
+
         // add our default instance callbacks
         let initCallbacks = [saveOnBlurOption(instance), getSaveFunction(templateData.onSave, instance)];
 
@@ -12,12 +14,17 @@ Template.TinyMce.onCreated(function() {
 
             initOptions = _.defaults(templateData.init, defaultInitOptions);
 
+            instance.$(initOptions.selector).attr('data-tiny-editorid', editorId);
+
+            initOptions.selector = `*[data-tiny-editorid="${editorId}"]`;
+
             // add users init function to callbacks
             if (templateData.init.init_instance_callback) {
                 initCallbacks.push(templateData.init.init_instance_callback);
             }
 
             templateData.init.init_instance_callback = function(editor) {
+                instance.tinyEditor = editor;
                 for (callback of initCallbacks) {
                     try {
                         callback(editor);	
@@ -37,6 +44,10 @@ Template.TinyMce.onRendered(function() {
     this.initTinyEditor();
 })
 
+Template.TinyMce.onDestroyed(function() {
+    if(this.tinyEditor) this.tinyEditor.destroy();
+})
+
 let defaultInitOptions = {
     selector: '.editable',
     inline: true
@@ -46,12 +57,6 @@ function saveOnBlurOption(instance) {
     return function(editor) {
         editor.on('blur', function(e) {
             editor.save();
-        });
-
-        editor.on('NodeChange', function() {
-            console.log('NodeChange');
-
-            // editor.save();
         });
     }
 }

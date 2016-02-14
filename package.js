@@ -1,6 +1,6 @@
 Package.describe({
     name: 'nerdmed:tinymce-helper',
-    version: '0.0.2',
+    version: '0.0.3',
 
     // Brief, one-line summary of the package.
     summary: 'Simple Block Helper for TinyMce in Blaze',
@@ -16,7 +16,7 @@ Package.describe({
 Package.onUse(function(api) {
     api.versionsFrom('1.2.1');
     api.use('ecmascript');
-    api.use(['templating', 'reactive-var', 'jquery']);
+    api.use(['templating', 'reactive-var', 'jquery', 'random']);
     api.use(['teamon:tinymce@4.3.3_1']);
     api.addFiles('tinymce-helper.html', 'client');
     api.addFiles('tinymce-helper.js', 'client');
