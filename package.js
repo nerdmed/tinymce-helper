@@ -17,7 +17,7 @@ Package.onUse(function(api) {
     api.versionsFrom('1.2.1');
     api.use('ecmascript');
     api.use(['templating', 'reactive-var', 'jquery', 'random']);
-    api.use(['teamon:tinymce@4.3.3_1']);
+    api.use(['teamon:tinymce@4.3.3_2']);
     api.addFiles('tinymce-helper.html', 'client');
     api.addFiles('tinymce-helper.js', 'client');
 });
